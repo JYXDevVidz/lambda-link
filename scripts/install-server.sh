@@ -24,7 +24,7 @@ python3 -m pip install -r requirements.txt
 
 # 创建配置文件
 cat > /etc/lambdalink/server.env << EOF
-LAMBDALINK_API_KEY=198966zql#
+LAMBDALINK_API_KEY=weyerewhyusaduigb378694278463211##
 LAMBDALINK_PROXY_PORTS=9000-9010
 LAMBDALINK_LOG_LEVEL=INFO
 LAMBDALINK_LOG_FILE=/var/log/lambdalink/server.log
