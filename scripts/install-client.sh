@@ -24,8 +24,8 @@ python3 -m pip install -r requirements.txt
 
 # 创建配置文件
 cat > /etc/lambdalink/client.env << EOF
-LAMBDALINK_SERVER_HOST=8.217.86.184
-LAMBDALINK_API_KEY=198966zql#
+LAMBDALINK_SERVER_HOST=11.45.1.4
+LAMBDALINK_API_KEY=weyerewhyusaduigb378694278463211##
 LAMBDALINK_LISTEN_PORTS=9000,9001,9002
 LAMBDALINK_LOG_LEVEL=INFO
 LAMBDALINK_LOG_FILE=/var/log/lambdalink/client.log
