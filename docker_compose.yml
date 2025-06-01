@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  lambdalink-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "8000:8000"
+      - "9000-9010:9000-9010"
+    environment:
+      - LAMBDALINK_API_KEY=your-secure-api-key
+      - LAMBDALINK_PROXY_PORTS=9000-9010
+      - LAMBDALINK_LOG_LEVEL=INFO
+    volumes:
+      - ./logs:/var/log
+    restart: unless-stopped
+    
+  lambdalink-client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    environment:
+      - LAMBDALINK_SERVER_HOST=lambdalink-server
+      - LAMBDALINK_API_KEY=your-secure-api-key
+      - LAMBDALINK_LISTEN_PORTS=9000,9001,9002
+      - LAMBDALINK_LOG_LEVEL=INFO
+    volumes:
+      - ./logs:/var/log
+    restart: unless-stopped
+    depends_on:
+      - lambdalink-server
+    network_mode: "host"  # 需要访问宿主机IPv6
